@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="bg-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,9 +17,29 @@
     <title>JS Expense Tracker</title>
   </head>
   <body>
-    <div class="container">
-      <section class="bg-blue-400">
-        <div></div>
+    <div>
+      <section
+        class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
+      >
+        <div
+          class="flex items-center justify-center mb-6 gap-2 text-2xl font-bold"
+        >
+          <span class="material-symbols-outlined text-cyan-400"> balance </span>
+          <h3 class="font-bold text-3xl">Balance:</h3>
+          <span class="text-gray-300"> 0 </span>
+        </div>
+
+        <div class="flex items-center justify-between gap-14 text-lg">
+          <div>
+            <p>Income:</p>
+            <span class="text-green-500">$ 0</span>
+          </div>
+
+          <div>
+            <p>Expenses:</p>
+            <span class="text-red-500">$ 0</span>
+          </div>
+        </div>
       </section>
     </div>
   </body>
