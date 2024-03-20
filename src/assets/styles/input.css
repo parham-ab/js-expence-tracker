@@ -5,3 +5,13 @@
 body {
   font-family: nunito;
 }
+input,
+select {
+  color: #000;
+  border-radius: 5px;
+  padding: 3px;
+  width: 180px;
+}
+/* label {
+  cursor: pointer;
+} */

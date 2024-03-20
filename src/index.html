@@ -18,6 +18,7 @@
   </head>
   <body>
     <div>
+      <!-- balance card -->
       <section
         class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
       >
@@ -40,6 +41,33 @@
             <span class="text-red-500">$ 0</span>
           </div>
         </div>
+      </section>
+
+      <!-- add new item -->
+      <section
+        class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
+      >
+        <div class="flex items-center text-lg">
+          <div class="flex flex-col gap-2.5 mx-2">
+            <label>Type:</label>
+            <label>Name:</label>
+            <label>Amount:</label>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <select name="type" id="">
+              <option value="expense">Expense</option>
+              <option value="income">Incomes</option>
+            </select>
+            <input type="text" />
+            <input type="text" />
+          </div>
+        </div>
+        <button
+          class="flex justify-center mx-auto bg-green-700 hover:bg-green-500 p-2 rounded-xl transition w-full mt-5 text-center"
+        >
+          ADD
+        </button>
       </section>
     </div>
   </body>
