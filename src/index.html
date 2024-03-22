@@ -19,55 +19,130 @@
   <body>
     <div>
       <!-- balance card -->
-      <section
-        class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
-      >
-        <div
-          class="flex items-center justify-center mb-6 gap-2 text-2xl font-bold"
+      <div class="md:flex md:flex-row xs:flex-col items-center">
+        <section
+          class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
         >
-          <span class="material-symbols-outlined text-cyan-400"> balance </span>
-          <h3 class="font-bold text-3xl">Balance:</h3>
-          <span class="text-gray-300"> 0 </span>
-        </div>
-
-        <div class="flex items-center justify-between gap-14 text-lg">
-          <div>
-            <p>Income:</p>
-            <span class="text-green-500">$ 0</span>
+          <div
+            class="flex items-center justify-center mb-6 gap-2 text-2xl font-bold"
+          >
+            <span class="material-symbols-outlined text-cyan-400">
+              balance
+            </span>
+            <h3 class="font-bold text-3xl">Balance:</h3>
+            <span class="text-gray-300"> 0 </span>
           </div>
 
-          <div>
-            <p>Expenses:</p>
-            <span class="text-red-500">$ 0</span>
-          </div>
-        </div>
-      </section>
+          <div class="flex items-center justify-between gap-14 text-lg">
+            <div>
+              <p>Income:</p>
+              <span class="text-green-500">$ 0</span>
+            </div>
 
-      <!-- add new item -->
-      <section
-        class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
-      >
-        <div class="flex items-center text-lg">
-          <div class="flex flex-col gap-2.5 mx-2">
-            <label>Type:</label>
-            <label>Name:</label>
-            <label>Amount:</label>
+            <div>
+              <p>Expenses:</p>
+              <span class="text-red-500">$ 0</span>
+            </div>
           </div>
+        </section>
 
-          <div class="flex flex-col gap-2">
-            <select name="type" id="">
-              <option value="expense">Expense</option>
-              <option value="income">Incomes</option>
-            </select>
-            <input type="text" />
-            <input type="text" />
-          </div>
-        </div>
-        <button
-          class="flex justify-center mx-auto bg-green-700 hover:bg-green-500 p-2 rounded-xl transition w-full mt-5 text-center"
+        <!-- add new item -->
+        <section
+          class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
         >
-          ADD
-        </button>
+          <div class="flex items-center text-lg">
+            <div class="flex flex-col gap-2.5 mx-2">
+              <label>Type:</label>
+              <label>Name:</label>
+              <label>Amount:</label>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <select name="type" id="">
+                <option value="expense">Expense</option>
+                <option value="income">Incomes</option>
+              </select>
+              <input type="text" />
+              <input type="text" />
+            </div>
+          </div>
+          <button
+            class="flex justify-center mx-auto bg-green-700 hover:bg-green-500 p-2 rounded-xl transition w-full mt-5 text-center"
+          >
+            ADD
+          </button>
+        </section>
+      </div>
+
+      <!-- items table -->
+
+      <section class="text-white bg-black mt-40 overflow-x-auto">
+        <table class="table-auto min-w-full divide-y divide-white">
+          <thead class="bg-black">
+            <tr>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-16"
+              >
+                No
+              </th>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider"
+              >
+                Name
+              </th>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider"
+              >
+                Amount
+              </th>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider"
+              >
+                Type
+              </th>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-16"
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-black divide-y divide-white">
+            <tr>
+              <td class="whitespace-nowrap text-center">1</td>
+              <td class="whitespace-nowrap text-center">
+                The Sliding Mr. Bones (Next Stop, Pottersville)
+              </td>
+              <td class="whitespace-nowrap text-center">1961</td>
+              <td class="whitespace-nowrap text-center">1961</td>
+              <td class="whitespace-nowrap text-center">
+                <button
+                  class="material-symbols-outlined text-red-600 hover:text-red-900"
+                >
+                  delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="whitespace-nowrap text-center">2</td>
+              <td class="whitespace-nowrap text-center">Witchy Woman</td>
+              <td class="whitespace-nowrap text-center">1972</td>
+              <td class="whitespace-nowrap text-center">j</td>
+              <td class="whitespace-nowrap text-center">
+                <button
+                  class="material-symbols-outlined text-red-600 hover:text-red-900"
+                >
+                  delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </div>
   </body>
