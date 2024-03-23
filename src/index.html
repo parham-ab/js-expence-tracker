@@ -30,22 +30,21 @@
               balance
             </span>
             <h3 class="font-bold text-3xl">Balance:</h3>
-            <span class="text-gray-300"> 0 </span>
+            <span class="text-gray-300 balance-display"> 0 </span>
           </div>
 
           <div class="flex items-center justify-between gap-14 text-lg">
             <div>
               <p>Income:</p>
-              <span class="text-green-500">$ 0</span>
+              <span class="text-green-500 income-display">$ 0</span>
             </div>
 
             <div>
               <p>Expenses:</p>
-              <span class="text-red-500">$ 0</span>
+              <span class="text-red-500 expense-display">$ 0</span>
             </div>
           </div>
         </section>
-
         <!-- add new item -->
         <section
           class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
@@ -56,33 +55,34 @@
               <label>Name:</label>
               <label>Amount:</label>
             </div>
-
             <div class="flex flex-col gap-2">
               <select name="type" id="">
                 <option value="expense">Expense</option>
-                <option value="income">Incomes</option>
+                <option value="income">Income</option>
               </select>
-              <input type="text" />
-              <input type="text" />
+              <input type="text" name="name" />
+              <input type="number" name="amount" />
             </div>
           </div>
           <button
             class="flex justify-center mx-auto bg-green-700 hover:bg-green-500 p-2 rounded-xl transition w-full mt-5 text-center"
+            id="addButton"
           >
             ADD
           </button>
         </section>
       </div>
-
       <!-- items table -->
-
-      <section class="text-white bg-black mt-40 overflow-x-auto">
-        <table class="table-auto min-w-full divide-y divide-white">
+      <section
+        class="text-white bg-black my-40 overflow-x-auto flex justify-center"
+        id="table-container"
+      >
+        <table class="table-auto divide-y divide-white w-[800px]">
           <thead class="bg-black">
             <tr>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider w-16"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-12"
               >
                 No
               </th>
@@ -94,56 +94,28 @@
               </th>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-60"
               >
                 Amount
               </th>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-12"
               >
                 Type
               </th>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider w-16"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-12"
               >
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody class="bg-black divide-y divide-white">
-            <tr>
-              <td class="whitespace-nowrap text-center">1</td>
-              <td class="whitespace-nowrap text-center">
-                The Sliding Mr. Bones (Next Stop, Pottersville)
-              </td>
-              <td class="whitespace-nowrap text-center">1961</td>
-              <td class="whitespace-nowrap text-center">1961</td>
-              <td class="whitespace-nowrap text-center">
-                <button
-                  class="material-symbols-outlined text-red-600 hover:text-red-900"
-                >
-                  delete
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td class="whitespace-nowrap text-center">2</td>
-              <td class="whitespace-nowrap text-center">Witchy Woman</td>
-              <td class="whitespace-nowrap text-center">1972</td>
-              <td class="whitespace-nowrap text-center">j</td>
-              <td class="whitespace-nowrap text-center">
-                <button
-                  class="material-symbols-outlined text-red-600 hover:text-red-900"
-                >
-                  delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody class="bg-black divide-y divide-white"></tbody>
         </table>
       </section>
     </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
