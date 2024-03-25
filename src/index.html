@@ -32,8 +32,7 @@
             <h3 class="font-bold text-3xl">Balance:</h3>
             <span class="text-gray-300 balance-display"> 0 </span>
           </div>
-
-          <div class="flex items-center justify-between gap-14 text-lg">
+          <div class="flex items-center justify-between gap-14 text-lg my-10">
             <div>
               <p>Income:</p>
               <span class="text-green-500 income-display">$ 0</span>
@@ -44,24 +43,31 @@
               <span class="text-red-500 expense-display">$ 0</span>
             </div>
           </div>
-        </section>
-        <!-- add new item -->
-        <section
-          class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
-        >
           <div class="flex items-center text-lg">
-            <div class="flex flex-col gap-2.5 mx-2">
-              <label>Type:</label>
-              <label>Name:</label>
-              <label>Amount:</label>
+            <div class="flex flex-col gap-4 mx-2">
+              <label for="type">Type:</label>
+              <label for="category">Category:</label>
+              <label for="date">Date:</label>
+              <label for="name">Name:</label>
+              <label for="amount">Amount:</label>
             </div>
             <div class="flex flex-col gap-2">
-              <select name="type" id="">
+              <select name="type" id="type">
                 <option value="expense">Expense</option>
                 <option value="income">Income</option>
               </select>
-              <input type="text" name="name" />
-              <input type="number" name="amount" />
+              <select name="category" id="category">
+                <option value="Shopping">Shopping</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Food">Food</option>
+                <option value="Bills">Bills</option>
+                <option value="Investment">Investment</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="others">Others</option>
+              </select>
+              <input type="date" name="date" id="date" />
+              <input type="text" name="name" id="name" />
+              <input type="number" name="amount" id="amount" />
             </div>
           </div>
           <button
@@ -71,6 +77,7 @@
             ADD
           </button>
         </section>
+        <!-- add new item -->
       </div>
       <!-- items table -->
       <section
@@ -82,7 +89,7 @@
             <tr>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider w-12"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-5"
               >
                 No
               </th>
@@ -94,15 +101,21 @@
               </th>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider w-60"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-40"
               >
                 Amount
               </th>
               <th
                 scope="col"
-                class="text-center text-xs text-white font-bold uppercase tracking-wider w-12"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-32"
               >
-                Type
+                Date
+              </th>
+              <th
+                scope="col"
+                class="text-center text-xs text-white font-bold uppercase tracking-wider w-10"
+              >
+                Category
               </th>
               <th
                 scope="col"
