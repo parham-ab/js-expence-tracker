@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.table-initial-info {
+  @apply text-center text-xs text-white font-bold uppercase tracking-wider
+}
 body {
   font-family: nunito;
 }
