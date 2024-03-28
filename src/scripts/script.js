@@ -1,4 +1,3 @@
-
 const balanceDisplay = document.querySelector(".balance-display");
 const incomeDisplay = document.querySelector(".income-display");
 const expenseDisplay = document.querySelector(".expense-display");
