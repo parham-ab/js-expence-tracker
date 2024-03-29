@@ -1,9 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 .table-initial-info {
-  @apply text-center text-xs text-white font-bold uppercase tracking-wider
+  @apply text-center text-xs text-white font-bold uppercase tracking-wider;
 }
 body {
   font-family: nunito;
@@ -15,22 +14,14 @@ select {
   padding: 3px;
   width: 180px;
 }
-/* label {
-  cursor: pointer;
-} */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-
 td,
 th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
-/* 
-tr:nth-child(even) {
-  background-color: #dddddd;
-} */
