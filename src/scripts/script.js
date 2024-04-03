@@ -56,14 +56,28 @@ function calculateCategoryPercentages() {
 }
 // Add row
 const addRow = () => {
+  const nameInput = document.querySelector("input[name='name']");
+  const amountInput = document.querySelector("input[name='amount']");
+  const dateInput = document.querySelector("input[type='date']");
   const type = document.querySelector("select[name='type']").value;
-  const name = document.querySelector("input[name='name']").value;
-  const amount = parseFloat(
-    document.querySelector("input[name='amount']").value
-  );
   const category = document.querySelector("select[name='category']").value;
-  const date = document.querySelector("input[type='date']").value;
   const newRow = document.createElement("tr");
+  // Validate inputs
+  const name = nameInput.value;
+  const amount = parseFloat(amountInput.value);
+  const date = dateInput.value;
+  if (name === "") {
+    alert("Please enter a name.");
+    return;
+  }
+  if (isNaN(amount) || amount <= 0) {
+    alert("Please enter a valid amount.");
+    return;
+  }
+  if (date === "") {
+    alert("Please select a date.");
+    return;
+  }
   newRow.classList.add(type === "expense" ? "bg-[#331414]" : "bg-[#0d2d0b]");
   newRow.innerHTML = `
       <td class="whitespace-nowrap text-center item-no">${++itemNo}</td>
@@ -108,8 +122,6 @@ const addRow = () => {
       row.querySelector(".item-no").textContent = index + 1;
     });
     toggleTableDisplay();
-    console.log(calculateCategoryPercentages());
   });
-  console.log(calculateCategoryPercentages());
 };
 addButton.addEventListener("click", addRow);
