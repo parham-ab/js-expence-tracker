@@ -4,6 +4,7 @@ const expenseDisplay = document.querySelector(".expense-display");
 const tableSection = document.querySelector("#table-container");
 const addButton = document.getElementById("addButton");
 const itemList = document.querySelector("tbody");
+const percentage_container = document.querySelector(".percentage");
 let balance = 0;
 let income = 0;
 let expenses = 0;
@@ -12,7 +13,6 @@ const categoryExpenses = {}; // Object to store expenses for each category
 
 const toggleTableDisplay = () =>
   (tableSection.style.display = itemNo === 0 ? "none" : "flex");
-
 function updateDisplay(type, amount, category) {
   if (type === "income") {
     income += parseFloat(amount);
@@ -25,30 +25,35 @@ function updateDisplay(type, amount, category) {
     }
   }
   balance = income - expenses;
-  balanceDisplay.textContent = "$ " + balance.toFixed(2);
-  incomeDisplay.textContent = "$ " + income.toFixed(2);
-  expenseDisplay.textContent = "$ " + expenses.toFixed(2);
+  balanceDisplay.textContent = `$ ${balance.toFixed(2)}`;
+  incomeDisplay.textContent = `$ ${income.toFixed(2)}`;
+  expenseDisplay.textContent = `$ ${expenses.toFixed(2)}`;
   toggleTableDisplay();
 }
-
 toggleTableDisplay();
-
 // Function to calculate category percentages
 function calculateCategoryPercentages() {
   const totalExpense = Object.values(categoryExpenses).reduce(
     (acc, curr) => acc + curr,
     0
   );
-
   const percentages = {};
   for (const category in categoryExpenses) {
     const percentage = (categoryExpenses[category] / totalExpense) * 100;
-    percentages[category] = percentage.toFixed(2) + "%";
+    if (percentage > 0) {
+      percentages[category] = percentage.toFixed(2) + "%";
+    }
   }
-
+  // Clear previous content of percentage_container
+  percentage_container.innerHTML = "";
+  // Create and append p tags for each category percentage
+  for (const category in percentages) {
+    const pTag = document.createElement("p");
+    pTag.textContent = `${category}: ${percentages[category]}`;
+    percentage_container.appendChild(pTag);
+  }
   return percentages;
 }
-
 // Add row
 const addRow = () => {
   const type = document.querySelector("select[name='type']").value;
@@ -93,9 +98,9 @@ const addRow = () => {
       categoryExpenses[category] -= amount;
     }
     balance = income - expenses;
-    balanceDisplay.textContent = "$ " + balance.toFixed(2);
-    incomeDisplay.textContent = "$ " + income.toFixed(2);
-    expenseDisplay.textContent = "$ " + expenses.toFixed(2);
+    balanceDisplay.textContent = `$ ${balance.toFixed(2)}`;
+    incomeDisplay.textContent = `$ ${income.toFixed(2)}`;
+    expenseDisplay.textContent = `$ ${expenses.toFixed(2)}`;
     newRow.remove();
     const rows = itemList.querySelectorAll("tr");
     itemNo = rows.length;
@@ -107,5 +112,4 @@ const addRow = () => {
   });
   console.log(calculateCategoryPercentages());
 };
-
 addButton.addEventListener("click", addRow);
