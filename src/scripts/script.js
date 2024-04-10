@@ -122,6 +122,8 @@ const addRow = () => {
       row.querySelector(".item-no").textContent = index + 1;
     });
     toggleTableDisplay();
+    calculateCategoryPercentages();
   });
+  calculateCategoryPercentages();
 };
 addButton.addEventListener("click", addRow);
