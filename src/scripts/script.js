@@ -63,7 +63,7 @@ const addRow = () => {
   const category = document.querySelector("select[name='category']").value;
   const newRow = document.createElement("tr");
   // Validate inputs
-  const name = nameInput.value;
+  const name = nameInput.value.trim();
   const amount = parseFloat(amountInput.value);
   const date = dateInput.value;
   if (name === "") {
