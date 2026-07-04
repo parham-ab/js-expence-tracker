@@ -80,13 +80,13 @@ const addRow = () => {
   }
   newRow.classList.add(type === "expense" ? "bg-[#331414]" : "bg-[#0d2d0b]");
   newRow.innerHTML = `
-      <td class="whitespace-nowrap text-center item-no">${++itemNo}</td>
-      <td class="whitespace-nowrap text-center max-w-52 text-wrap">${name}</td>
-      <td class="whitespace-nowrap text-center">${amount}</td>
-      <td class="text-center">${date}</td>
-      <td class="text-center">${category}</td>
-      <td class="whitespace-nowrap text-center">
-      <button class="material-symbols-outlined text-red-600 hover:text-red-900 delete-btn">delete</button>
+      <td class="item-no">${++itemNo}</td>
+      <td>${name}</td>
+      <td>${amount}</td>
+      <td>${date}</td>
+      <td>${category}</td>
+      <td>
+      <button class="material-symbols-outlined delete-btn">delete</button>
       </td>
   `;
   itemList.appendChild(newRow);

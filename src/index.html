@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" class="bg-black">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -14,95 +14,138 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
     <link href="./assets/styles/output.css" rel="stylesheet" />
-    <title>JS Expense Tracker</title>
+    <title>Ledger — Expense Tracker</title>
   </head>
   <body>
-    <div class="md:flex lg:flex-row flex-col items-center lg:mx-14 mx-0">
-      <!-- balance card -->
-      <section
-        class="bg-neutral-800 text-white p-5 rounded-lg shadow-lg w-fit mx-auto my-5"
-      >
-        <div
-          class="flex items-center justify-center mb-6 gap-2 text-2xl font-bold"
-        >
-          <span class="material-symbols-outlined text-cyan-400"> balance </span>
-          <h3 class="font-bold text-3xl">Balance:</h3>
-          <span class="text-gray-300 balance-display"> 0 </span>
-        </div>
-        <div class="flex items-center justify-between gap-14 text-lg my-10">
-          <div>
-            <p>Income:</p>
-            <span class="text-green-500 income-display">$ 0</span>
-          </div>
-
-          <div>
-            <p>Expenses:</p>
-            <span class="text-red-500 expense-display">$ 0</span>
-          </div>
-        </div>
-        <!-- percentage -->
-        <div class="percentage my-[40px] text-xs text-[#a5a5a5]"></div>
-
-        <div class="flex items-center text-lg">
-          <div class="flex flex-col gap-4 mx-2">
-            <label for="type">Type:</label>
-            <label for="category">Category:</label>
-            <label for="date">Date:</label>
-            <label for="name">Name:</label>
-            <label for="amount">Amount:</label>
-          </div>
-          <div class="flex flex-col gap-2">
-            <select name="type" id="type">
-              <option value="expense">Expense</option>
-              <option value="income">Income</option>
-            </select>
-            <select name="category" id="category">
-              <option value="Shopping">Shopping</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Food">Food</option>
-              <option value="Bills">Bills</option>
-              <option value="Investment">Investment</option>
-              <option value="healthcare">Healthcare</option>
-              <option value="others">Others</option>
-            </select>
-            <input type="date" name="date" id="date" />
-            <input type="text" name="name" id="name" />
-            <input type="number" name="amount" id="amount" />
-          </div>
-        </div>
-        <button
-          class="flex justify-center mx-auto bg-green-700 hover:bg-green-500 p-2 rounded-xl transition w-full mt-5 text-center"
-          id="addButton"
-        >
-          ADD
-        </button>
-      </section>
-      <!-- table -->
-      <section
-        class="text-white bg-black my-40 lg:mx-12 mx-5 overflow-x-auto flex justify-center"
-        id="table-container"
-      >
-        <div
-          class="w-full overflow-x-auto flex justify-start md:justify-center"
-          style="max-height: 500px"
-        >
-          <table
-            class="table-auto divide-y divide-white w-[800px] overflow-x-auto"
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="material-symbols-outlined brand-icon"
+            >account_balance_wallet</span
           >
-            <thead class="bg-black">
-              <tr>
-                <th scope="col" class="table-initial-info w-5">No</th>
-                <th scope="col" class="table-initial-info text-wrap">Name</th>
-                <th scope="col" class="table-initial-info">Amount</th>
-                <th scope="col" class="table-initial-info">Date</th>
-                <th scope="col" class="table-initial-info">Category</th>
-                <th scope="col" class="table-initial-info w-5">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="bg-black divide-y divide-white"></tbody>
-          </table>
+          <div>
+            <h1>Ledger</h1>
+            <p>Track every dollar, in and out.</p>
+          </div>
         </div>
-      </section>
+      </header>
+
+      <main class="layout">
+        <!-- balance card -->
+        <section class="balance-card">
+          <div class="balance-head">
+            <span class="material-symbols-outlined balance-icon">payments</span>
+            <div>
+              <p class="balance-label">Current balance</p>
+              <p class="balance-display">$ 0.00</p>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-pill stat-pill--income">
+              <span class="material-symbols-outlined">trending_up</span>
+              <div>
+                <p>Income</p>
+                <span class="income-display">$ 0.00</span>
+              </div>
+            </div>
+            <div class="stat-pill stat-pill--expense">
+              <span class="material-symbols-outlined">trending_down</span>
+              <div>
+                <p>Expenses</p>
+                <span class="expense-display">$ 0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <span>By category</span>
+          </div>
+          <div class="percentage"></div>
+
+          <div class="section-divider">
+            <span>New entry</span>
+          </div>
+
+          <form class="entry-form" onsubmit="return false;">
+            <div class="field">
+              <label for="type">Type</label>
+              <select name="type" id="type">
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <select name="category" id="category">
+                <option value="Shopping">Shopping</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Food">Food</option>
+                <option value="Bills">Bills</option>
+                <option value="Investment">Investment</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="others">Others</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="date">Date</label>
+              <input type="date" name="date" id="date" />
+            </div>
+
+            <div class="field">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Coffee, rent, salary…"
+              />
+            </div>
+
+            <div class="field">
+              <label for="amount">Amount</label>
+              <input
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="0.00"
+              />
+            </div>
+
+            <button class="add-button" id="addButton" type="button">
+              <span class="material-symbols-outlined">add</span>
+              Add entry
+            </button>
+          </form>
+        </section>
+
+        <!-- table -->
+        <section class="table-card" id="table-container">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" class="table-initial-info col-no">No</th>
+                  <th scope="col" class="table-initial-info col-name">Name</th>
+                  <th scope="col" class="table-initial-info col-amount">
+                    Amount
+                  </th>
+                  <th scope="col" class="table-initial-info col-date">Date</th>
+                  <th scope="col" class="table-initial-info col-category">
+                    Category
+                  </th>
+                  <th scope="col" class="table-initial-info col-actions">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
     </div>
     <script src="scripts/script.js"></script>
   </body>

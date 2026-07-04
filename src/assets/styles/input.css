@@ -6,6 +6,7 @@
 }
 body {
   font-family: nunito;
+  user-select: none;
 }
 input,
 select {
